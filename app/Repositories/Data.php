@@ -5,8 +5,7 @@ namespace App\Repositories;
 
 class Data
 {
-    function teams()
-    {
+    function teams() {
         return [
             ['id' => 1, 'name' => 'Paris'],
             ['id' => 2, 'name' => 'Marseille'],
@@ -31,8 +30,7 @@ class Data
         ];
     }
 
-    function matches()
-    {
+    function matches() {
         return [
             ['id' => 1, 'team0' => 7, 'team1' => 19, 'score0' => 2, 'score1' => 5, 'date' => '2048-08-03 00:00:00'],
             ['id' => 2, 'team0' => 15, 'team1' => 13, 'score0' => 1, 'score1' => 4, 'date' => '2048-08-03 00:00:00'],
@@ -417,8 +415,7 @@ class Data
         ];
     }
 
-    function expectedUnsortedRanking()
-    {
+    function expectedUnsortedRanking() {
         return [
             ['team_id' => 1, 'match_played_count' => 38, 'match_won_count' => 22, 'match_lost_count' => 10, 'draw_count' => 6, 'goal_for_count' => 111, 'goal_against_count' => 92, 'goal_difference' => 19, 'points' => 72],
             ['team_id' => 2, 'match_played_count' => 38, 'match_won_count' => 19, 'match_lost_count' => 15, 'draw_count' => 4, 'goal_for_count' => 91, 'goal_against_count' => 68, 'goal_difference' => 23, 'points' => 61],
@@ -443,8 +440,7 @@ class Data
         ];
     }
 
-    function expectedSortedRanking()
-    {
+    function expectedSortedRanking() {
         return [
             ['rank' => 1, 'team_id' => 1, 'match_played_count' => 38, 'match_won_count' => 22, 'match_lost_count' => 10, 'draw_count' => 6, 'goal_for_count' => 111, 'goal_against_count' => 92, 'goal_difference' => 19, 'points' => 72],
             ['rank' => 2, 'team_id' => 3, 'match_played_count' => 38, 'match_won_count' => 19, 'match_lost_count' => 13, 'draw_count' => 6, 'goal_for_count' => 111, 'goal_against_count' => 97, 'goal_difference' => 14, 'points' => 63],
@@ -469,8 +465,7 @@ class Data
         ];
     }
 
-    function expectedSortedRankingWithName()
-    {
+    function expectedSortedRankingWithName() {
         return [
             ['rank' => 1, 'name' => 'Paris', 'team_id' => 1, 'match_played_count' => 38, 'match_won_count' => 22, 'match_lost_count' => 10, 'draw_count' => 6, 'goal_for_count' => 111, 'goal_against_count' => 92, 'goal_difference' => 19, 'points' => 72],
             ['rank' => 2, 'name' => 'Lyon', 'team_id' => 3, 'match_played_count' => 38, 'match_won_count' => 19, 'match_lost_count' => 13, 'draw_count' => 6, 'goal_for_count' => 111, 'goal_against_count' => 97, 'goal_difference' => 14, 'points' => 63],
@@ -495,8 +490,7 @@ class Data
         ];
     }
 
-    function expectedMatchesForTeam4()
-    {
+    function expectedMatchesForTeam4() {
         return [
             ['id' => 7, 'team0' => 4, 'team1' => 18, 'score0' => 3, 'score1' => 5, 'date' => '2048-08-03 00:00:00', 'name0' => 'Toulouse', 'name1' => 'Angers'],
             ['id' => 18, 'team0' => 14, 'team1' => 4, 'score0' => 0, 'score1' => 1, 'date' => '2048-08-10 00:00:00', 'name0' => 'Gap', 'name1' => 'Toulouse'],
