@@ -14,7 +14,7 @@ class DatabaseSeeder extends Seeder {
         touch("database/database.sqlite");
         $repository = new Repository();        
         $repository->createDatabase();
-        $repository->fillDatabase();
+        $repository->fillDatabase();  
         $repository->updateRanking(); 
         $repository->addUser('user@example.com', 'secret');
     }

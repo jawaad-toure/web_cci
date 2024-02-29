@@ -26,7 +26,7 @@ Match de l'équipe
         <tr>
             <td>{{ $teamRank["rank"] }}</td>
             <td>
-                <a href="{{route('teams.show', ['teamId'=>$teamRank['team_id']])}}">
+                <a href="{{route('teams.show', ['teamId'=> $teamRank['team_id']])}}">
                     {{ $teamRank["name"] }}
                 </a>
             </td>
@@ -48,16 +48,23 @@ Match de l'équipe
         <tr>
             <td>{{ $teamMatch['date'] }}</td>
             <td>
-                <a href="{{route('teams.show', ['teamId'=>$teamMatch['team0']])}}">
+                <a href="{{route('teams.show', ['teamId'=> $teamMatch['team0']])}}">
                     {{ $teamMatch['name0'] }}
                 </a>
             </td>
             <td>
                 {{ $teamMatch['score0'] }} - {{ $teamMatch['score1'] }} 
             <td>
-                <a href="{{route('teams.show', ['teamId'=>$teamMatch['team1']])}}">
+                <a href="{{route('teams.show', ['teamId'=> $teamMatch['team1']])}}">
                     {{ $teamMatch['name1'] }}
                 </a>                        
+            </td>
+
+            <td>
+                <form method="POST" action="{{ route('matches.delete', ['matchId' => $teamMatch['id']]) }}">
+                    @csrf
+                    <button type="submit" class="btn btn-danger">Supprimer</button>
+                </form>
             </td>
         </tr>
     @endforeach

@@ -177,4 +177,10 @@ class Repository {
          ->where("email", $email)
          ->update(['password_hash' => $passwordHash]);
    }
+
+   function deleteMatch(int $matchId) {
+      DB::table("matches")
+            ->where('id', $matchId)
+            ->delete();
+   }
 }

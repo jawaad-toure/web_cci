@@ -129,7 +129,7 @@ class Controller extends BaseController {
         return view('login');
     }
 
-    public function login(Request $request, Repository $repository) {
+    public function login(Request $request) {
         $rules = [
             'email' => ['required', 'email', 'exists:users,email'],
             'password' => ['required']
@@ -164,9 +164,15 @@ class Controller extends BaseController {
         return redirect()->route('ranking.show');
     }
 
-    public function deleteMatch(Request $request) {
+    public function deleteMatch(Request $request, int $matchId) {
         if (!$request->session()->has('user')) {
             return redirect()->route('login');
-        }       
+        }
+        
+        $this->repository->deleteMatch($matchId);
+
+        $this->repository->updateRanking();
+
+        return redirect()->back();
     }
 }

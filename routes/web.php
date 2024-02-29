@@ -28,3 +28,5 @@ Route::post('/login', [Controller::class, 'login'])->name('login.post');
 
 Route::post('/logout', [Controller::class, 'logout'])->name('logout');
 
+Route::post('/matches/{matchId}/delete', [Controller::class, 'deleteMatch'])->where('matchId', '[0-9]+')->name('matches.delete');
+
