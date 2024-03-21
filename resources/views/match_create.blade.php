@@ -5,32 +5,32 @@
 @section('content')
 <form method="POST" action="{{route('matches.store')}}">
     @csrf
-    
+
     @if ($errors->any())
-        <div class="alert alert-warning">
-            Le match n'a pas pu être ajouté &#9785;
-        </div>
+    <div class="alert alert-warning">
+        Le match n'a pas pu être ajouté &#9785;
+    </div>
     @endif
 
     <div class="form-group">
         <label for="team0">Équipe à domicile</label>
         <select class="form-control" id="team0" name="team0">
+
             @foreach ($teams as $team)
-                <option value="{{$team["id"]}}" 
-                    @if (old("id") == $team["id"]) selected @endif>
-                    {{$team["name"]}}
-                </option>
+            <option value="{{$team['id']}}" @if ( old('id') == $team['id'] ) selected @endif>
+                {{$team["name"]}}
+            </option>
             @endforeach
         </select>
     </div>
     <div class="form-group">
         <label for="team1">Équipe à l'extérieur</label>
         <select class="form-control" id="team1" name="team1">
+            
             @foreach ($teams as $team)
-                <option value="{{$team["id"]}}" 
-                    @if (old("id") == $team["id"]) slected @endif>
-                    {{$team["name"]}}
-                </option>
+            <option value="{{$team['id']}}" @if ( old('id') == $team['id'] ) selected @endif>
+                {{$team["name"]}}
+            </option>
             @endforeach
         </select>
     </div>

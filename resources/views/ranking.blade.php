@@ -23,24 +23,22 @@ Classement
 
     <tbody>
         @foreach ($ranking as $rank)
-            <tr
-                @if (Cookie::get('followed_team') == $rank['team_id']) class="table-primary" @endif
-            >
-                <td>{{ $rank["rank"] }}</td>
-                <td>
-                    <a href="{{route('teams.show', ['teamId' => $rank['team_id']])}}">
-                        {{ $rank["name"] }}
-                    </a>
-                </td>
-                <td>{{ $rank["match_played_count"] }}</td>
-                <td>{{ $rank["match_won_count"] }}</td>
-                <td>{{ $rank["draw_count"] }}</td>
-                <td>{{ $rank["match_lost_count"] }}</td>
-                <td>{{ $rank["goal_for_count"] }}</td>
-                <td>{{ $rank["goal_against_count"] }}</td>
-                <td>{{ $rank["goal_difference"] }}</td>
-                <td>{{ $rank["points"] }}</td>
-            </tr>
+        <tr @if (Cookie::get('followed_team')==$rank['team_id']) class="table-primary" @endif>
+            <td>{{ $rank["rank"] }}</td>
+            <td>
+                <a href="{{ route('teams.show', ['teamId' => $rank['team_id']]) }}">
+                    {{ $rank["name"] }}
+                </a>
+            </td>
+            <td>{{ $rank["match_played_count"] }}</td>
+            <td>{{ $rank["match_won_count"] }}</td>
+            <td>{{ $rank["draw_count"] }}</td>
+            <td>{{ $rank["match_lost_count"] }}</td>
+            <td>{{ $rank["goal_for_count"] }}</td>
+            <td>{{ $rank["goal_against_count"] }}</td>
+            <td>{{ $rank["goal_difference"] }}</td>
+            <td>{{ $rank["points"] }}</td>
+        </tr>
         @endforeach
     </tbody>
 </table>

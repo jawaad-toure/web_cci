@@ -15,6 +15,7 @@ class Controller extends BaseController {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
     protected $repository;
+    
     public function __construct(Repository $repository) {
         $this->repository = $repository;
     }    
@@ -161,7 +162,7 @@ class Controller extends BaseController {
 
     public function logout(Request $request) {
         $request->session()->forget('user');
-        return redirect()->route('ranking.show');
+        return redirect()->route('ranking.show'); 
     }
 
     public function deleteMatch(Request $request, int $matchId) {

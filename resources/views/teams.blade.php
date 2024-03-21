@@ -8,7 +8,7 @@ Match de l'équipe
 <a class="btn btn-primary" href="{{ route('teams.follow', ['teamId'=>$teamRank['team_id']]) }}">Suivre</a><br><br>
 <table class="table table-striped">
     <thead class="thead-dark">
-        <tr>                
+        <tr>
             <th>N°</th>
             <th>Équipe</th>
             <th>MJ</th>
@@ -45,28 +45,28 @@ Match de l'équipe
 
 <table class="table table-striped">
     @foreach ($teamMatches as $teamMatch)
-        <tr>
-            <td>{{ $teamMatch['date'] }}</td>
-            <td>
-                <a href="{{route('teams.show', ['teamId'=> $teamMatch['team0']])}}">
-                    {{ $teamMatch['name0'] }}
-                </a>
-            </td>
-            <td>
-                {{ $teamMatch['score0'] }} - {{ $teamMatch['score1'] }} 
-            <td>
-                <a href="{{route('teams.show', ['teamId'=> $teamMatch['team1']])}}">
-                    {{ $teamMatch['name1'] }}
-                </a>                        
-            </td>
+    <tr>
+        <td>{{ $teamMatch['date'] }}</td>
+        <td>
+            <a href="{{ route('teams.show', ['teamId'=> $teamMatch['team0']]) }}">
+                {{ $teamMatch['name0'] }}
+            </a>
+        </td>
+        <td>
+            {{ $teamMatch['score0'] }} - {{ $teamMatch['score1'] }}
+        <td>
+            <a href="{{route('teams.show', ['teamId'=> $teamMatch['team1']])}}">
+                {{ $teamMatch['name1'] }}
+            </a>
+        </td>
 
-            <td>
-                <form method="POST" action="{{ route('matches.delete', ['matchId' => $teamMatch['id']]) }}">
-                    @csrf
-                    <button type="submit" class="btn btn-danger">Supprimer</button>
-                </form>
-            </td>
-        </tr>
+        <td>
+            <form method="POST" action="{{ route('matches.delete', ['matchId' => $teamMatch['id']]) }}">
+                @csrf
+                <button type="submit" class="btn btn-danger">Supprimer</button>
+            </form>
+        </td>
+    </tr>
     @endforeach
 </table>
 @endsection
